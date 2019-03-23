@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+</head>
+<body>
+<div id="app">
+    <p>{{name}}</p>
+    <p v-text="name"></p>
+    <p>{{age}}</p>
+    <div v-html="html"></div>
+    <input  type="text" v-model="name"/>
+    <button @click="changeName">click me to change</button>
+</div>
+
+</body>
+<script src="./my-vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            name:'myvue',
+            age:'18',
+            html:'<button>我是v-html 里面的元素 </button>'
+        },
+        created(){
+            setTimeout(function () {
+                this.age='3'
+            })
+        },
+        methods:{
+            changeName(){
+                this.name='hello vue world'
+            }
+        }
+    })
+</script>
+</html>

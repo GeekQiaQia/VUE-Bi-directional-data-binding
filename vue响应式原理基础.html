@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue响应式原理基础</title>
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+</head>
+<body style="display: flex;width:100%;height: 100%; overflow:hidden;flex-direction: row;justify-content: center;align-items: center;">
+    <div style="display:flex;width: 200px;height:200px;border: 1px solid ;" id="app">
+
+    </div>
+</body>
+<script>
+    let obj={};
+    Object.defineProperty(obj,'key',{
+        get() {
+            console.log("尝试获取key属性");
+            // 获取id=app 内的html 元素；
+            return document.querySelector('#app').innerHTML;
+        },
+        set(val){
+            console.log('尝试设置key的属性');
+            document.querySelector("#app").innerHTML=val;
+        }
+    })
+
+</script>
+</html>
